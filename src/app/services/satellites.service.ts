@@ -13,4 +13,10 @@ export class SatellitesService {
       'https://gnssplanningbeta.azurewebsites.net/api/SatelliteLocations/'
     );
   }
+
+  getVisibleSatelliteLocations(latitude: number, longitude: number) {
+    return this.http.get<SatelliteLocation[]>(
+      `https://gnssplanningbeta.azurewebsites.net/api/SatelliteLocations/VisibleFrom/${latitude}/${longitude}/`
+    );
+  }
 }

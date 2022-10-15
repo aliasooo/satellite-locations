@@ -1,6 +1,23 @@
 <clr-vertical-nav [clrVerticalNavCollapsible]="true">
-  <a clrVerticalNavLink [routerLink]="['/dashboard']" routerLinkActive="active">
-    <clr-icon clrVerticalNavIcon shape="home"></clr-icon>
-    Home
-  </a>
+  <clr-vertical-nav-group routerLinkActive="active">
+    <clr-icon shape="world" clrVerticalNavIcon></clr-icon>
+    Satellites
+    <clr-vertical-nav-group-children>
+      <a
+        clrVerticalNavLink
+        [routerLink]="['/portal/satellites/list']"
+        routerLinkActive="active"
+      >
+        All Satellites
+      </a>
+
+      <a
+        clrVerticalNavLink
+        [routerLink]="['/portal/satellites/list-visible']"
+        routerLinkActive="active"
+      >
+        Visible Satellites
+      </a>
+    </clr-vertical-nav-group-children>
+  </clr-vertical-nav-group>
 </clr-vertical-nav>

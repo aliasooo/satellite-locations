@@ -7,9 +7,11 @@ import { ListSatellitesComponent } from './list-satellites/list-satellites.compo
 import { ClarityModule } from '@clr/angular';
 import { ListVisibleSatellitesComponent } from './list-visible-satellites/list-visible-satellites.component';
 import { SatelliteHealthFilterComponent } from './satellite-health-filter/satellite-health-filter.component';
+import { SatelliteDetailsComponent } from './satellite-details/satellite-details.component';
+import { SatellitesTableComponent } from './satellites-table/satellites-table.component';
 
 @NgModule({
-  declarations: [ListSatellitesComponent, ListVisibleSatellitesComponent, SatelliteHealthFilterComponent],
+  declarations: [ListSatellitesComponent, ListVisibleSatellitesComponent, SatelliteHealthFilterComponent, SatelliteDetailsComponent, SatellitesTableComponent],
   imports: [
     CommonModule,
     SatellitesRoutingModule,

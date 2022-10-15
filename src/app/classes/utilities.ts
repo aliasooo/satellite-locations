@@ -48,4 +48,14 @@ export class Utilities {
         break;
     }
   }
+
+  static decamelize(str: string | undefined) {
+    return str
+      ? str
+          .replace(/([a-z\d])([A-Z])/g, '$1 ' + '$2')
+          .replace(/([A-Z]+)([A-Z][a-z\d]+)/g, '$1 ' + '$2')
+          .replace(/(_)/g, ' ')
+          .toLowerCase()
+      : null;
+  }
 }

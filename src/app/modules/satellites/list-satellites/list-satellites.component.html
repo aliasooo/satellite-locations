@@ -3,53 +3,15 @@
 
 <div class="card">
   <div class="card-block">
-    <clr-datagrid>
-      <clr-dg-column [clrDgField]="'displayName'">Name</clr-dg-column>
-      <clr-dg-column [clrDgField]="'constellation'"
-        >Constellation</clr-dg-column
-      >
-      <clr-dg-column [clrDgField]="'orbit?.isHealthy'"
-        >Health Indicator</clr-dg-column
-      >
-      <clr-dg-column [clrDgField]="'path?.trace?.latitude'"
-        >Latitude</clr-dg-column
-      >
-      <clr-dg-column [clrDgField]="'path?.trace?.latitude'"
-        >Longitude</clr-dg-column
-      >
-
-      <clr-dg-placeholder>Loading...</clr-dg-placeholder>
-
-      <clr-dg-row *clrDgItems="let satellite of satelliteLocations">
-        <clr-dg-action-overflow> </clr-dg-action-overflow>
-        <clr-dg-cell>{{ satellite?.displayName }}</clr-dg-cell>
-        <clr-dg-cell>{{ satellite?.constellation }}</clr-dg-cell>
-        <clr-dg-cell>
-          <span
-            class="color-square"
-            [style.backgroundColor]="
-              satellite?.orbit.isHealthy ? 'forestgreen' : 'res'
-            "
-          ></span>
-        </clr-dg-cell>
-        <clr-dg-cell>{{
-          satellite?.path[0]?.trace?.latitude
-            | coordinates: transformationType.ToDegrees:direction.Latitude
-        }}</clr-dg-cell>
-        <clr-dg-cell>{{
-          satellite?.path[0]?.trace?.longitude
-            | coordinates: transformationType.ToDegrees:direction.Longitude
-        }}</clr-dg-cell>
-      </clr-dg-row>
-
-      <clr-dg-footer *ngIf="satelliteLocations?.length! > 0">
-        {{ pagination.firstItem + 1 }} - {{ pagination.lastItem + 1 }} of
-        {{ pagination.totalItems }} Satellite Locations
-        <clr-dg-pagination
-          #pagination
-          [clrDgTotalItems]="satelliteLocations.length"
-        ></clr-dg-pagination>
-      </clr-dg-footer>
-    </clr-datagrid>
+    <app-satellites-table
+      [satelliteLocations]="(satelliteLocations$ | async)!"
+      (viewSatellite)="showSatelliteDetails($event)"
+    ></app-satellites-table>
   </div>
 </div>
+
+<app-satellite-details
+  *ngIf="isShowDetails"
+  [satellite]="selectedSatellite"
+  (closeModal)="isShowDetails = false"
+></app-satellite-details>
