@@ -6,7 +6,7 @@ import {
 } from '@angular/core';
 import { SatelliteLocation } from 'src/app/models/satellite-location.interface';
 import { SatellitesService } from 'src/app/services/satellites.service';
-
+import { TransformationType, Direction } from 'angular-coordinates';
 @Component({
   selector: 'app-list-satellites',
   templateUrl: './list-satellites.component.html',
@@ -14,6 +14,8 @@ import { SatellitesService } from 'src/app/services/satellites.service';
 })
 export class ListSatellitesComponent implements OnInit, AfterViewChecked {
   public satelliteLocations: SatelliteLocation[] = [];
+  public transformationType = TransformationType;
+  public direction = Direction;
 
   constructor(
     private satellitesService: SatellitesService,

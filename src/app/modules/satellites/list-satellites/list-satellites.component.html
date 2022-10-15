@@ -24,9 +24,22 @@
         <clr-dg-action-overflow> </clr-dg-action-overflow>
         <clr-dg-cell>{{ satellite?.displayName }}</clr-dg-cell>
         <clr-dg-cell>{{ satellite?.constellation }}</clr-dg-cell>
-        <clr-dg-cell>{{ satellite?.orbit?.isHealthy }} </clr-dg-cell>
-        <clr-dg-cell>{{ satellite?.path[0]?.trace?.latitude }}</clr-dg-cell>
-        <clr-dg-cell>{{ satellite?.path[0]?.trace?.longitude }}</clr-dg-cell>
+        <clr-dg-cell>
+          <span
+            class="color-square"
+            [style.backgroundColor]="
+              satellite?.orbit.isHealthy ? 'forestgreen' : 'res'
+            "
+          ></span>
+        </clr-dg-cell>
+        <clr-dg-cell>{{
+          satellite?.path[0]?.trace?.latitude
+            | coordinates: transformationType.ToDegrees:direction.Latitude
+        }}</clr-dg-cell>
+        <clr-dg-cell>{{
+          satellite?.path[0]?.trace?.longitude
+            | coordinates: transformationType.ToDegrees:direction.Longitude
+        }}</clr-dg-cell>
       </clr-dg-row>
 
       <clr-dg-footer *ngIf="satelliteLocations?.length! > 0">
