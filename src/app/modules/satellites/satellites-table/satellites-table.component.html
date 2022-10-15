@@ -16,7 +16,23 @@
     (click)="viewSatellite.emit(satellite)"
   >
     <clr-dg-cell>{{ satellite?.displayName }}</clr-dg-cell>
-    <clr-dg-cell>{{ satellite?.constellation }}</clr-dg-cell>
+    <clr-dg-cell
+      [ngStyle]="{
+        'background-color':
+          satellite?.constellation === 'C'
+            ? 'lavender'
+            : satellite?.constellation === 'E'
+            ? 'gold'
+            : satellite?.constellation === 'G'
+            ? 'antiquewhite'
+            : satellite?.constellation === 'J'
+            ? 'lightgrey'
+            : satellite?.constellation === 'J'
+            ? 'powderblue'
+            : null
+      }"
+      >{{ satellite?.constellation }}</clr-dg-cell
+    >
     <clr-dg-cell>
       <span
         class="color-square"
