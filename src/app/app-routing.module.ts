@@ -14,7 +14,16 @@ const routes: Routes = [
   {
     path: 'portal',
     component: PortalContainerComponent,
-    canActivate: [],
+    children: [
+      { path: '', pathMatch: 'full', redirectTo: 'satellites' },
+      {
+        path: 'satellites',
+        loadChildren: () =>
+          import('src/app/modules/satellites/satellites.module').then(
+            (m) => m.SatellitesModule
+          ),
+      },
+    ],
   },
 ];
 
