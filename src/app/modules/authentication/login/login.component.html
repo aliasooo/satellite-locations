@@ -1,1 +1,8 @@
-<p>login works!</p>
+<div class="login-wrapper">
+  <div class="login">
+    <app-login-form
+      [btnState]="btnState"
+      (login)="login($event)"
+    ></app-login-form>
+  </div>
+</div>

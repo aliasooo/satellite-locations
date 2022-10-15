@@ -27,9 +27,13 @@
             "styles": [
               "src/styles.scss",
               "node_modules/@clr/icons/clr-icons.min.css",
-              "node_modules/@clr/ui/clr-ui.min.css"
+              "node_modules/@clr/ui/clr-ui.min.css",
+              "node_modules/izitoast/dist/css/iziToast.min.css"
             ],
-            "scripts": ["node_modules/@clr/icons/clr-icons.min.js"]
+            "scripts": [
+              "node_modules/@clr/icons/clr-icons.min.js",
+              "node_modules/izitoast/dist/js/iziToast.min.js"
+            ]
           },
           "configurations": {
             "production": {
