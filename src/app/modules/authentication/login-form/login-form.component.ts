@@ -18,6 +18,7 @@ import { AuthenticationCredentials } from 'src/app/models/authentication-credent
 export class LoginFormComponent {
   @Input() btnState = ClrLoadingState.DEFAULT;
   @Output() login = new EventEmitter<AuthenticationCredentials>();
+  @Output() loginWithGoogle = new EventEmitter();
   public loginForm = new FormGroup({
     email: new FormControl('', {
       nonNullable: true,

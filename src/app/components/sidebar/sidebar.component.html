@@ -26,6 +26,17 @@
     [routerLink]="['/portal/map']"
     routerLinkActive="active"
   >
+    <clr-icon shape="map" clrVerticalNavIcon></clr-icon>
     Map
+  </a>
+
+  <a
+    *ngIf="checkIfCanViewSpyStuff()"
+    clrVerticalNavLink
+    [routerLink]="['/portal/spy-stuff']"
+    routerLinkActive="active"
+  >
+    <clr-icon shape="search" clrVerticalNavIcon></clr-icon>
+    Spy Stuff
   </a>
 </clr-vertical-nav>

@@ -9,4 +9,8 @@ export class SidebarComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  public checkIfCanViewSpyStuff() {
+    return !!sessionStorage.getItem('email')?.includes('matogen');
+  }
 }

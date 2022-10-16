@@ -6,6 +6,7 @@ import { AuthenticationRoutingModule } from './authentication-routing.module';
 import { LoginComponent } from './login/login.component';
 import { ClarityModule } from '@clr/angular';
 import { LoginFormComponent } from './login-form/login-form.component';
+import { SocialLoginModule } from '@abacritt/angularx-social-login';
 
 @NgModule({
   declarations: [LoginComponent, LoginFormComponent],
@@ -14,6 +15,7 @@ import { LoginFormComponent } from './login-form/login-form.component';
     AuthenticationRoutingModule,
     ClarityModule,
     ReactiveFormsModule,
+    SocialLoginModule,
   ],
 })
 export class AuthenticationModule {}

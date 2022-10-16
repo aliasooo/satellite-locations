@@ -2,7 +2,8 @@
   <div class="login">
     <app-login-form
       [btnState]="btnState"
-      (login)="login($event)"
+      (login)="authenticationService.login($event)"
+      (loginWithGoogle)="authenticationService.signInWithGoogle()"
     ></app-login-form>
   </div>
 </div>

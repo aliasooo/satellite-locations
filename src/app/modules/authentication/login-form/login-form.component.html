@@ -27,8 +27,11 @@
       (click)="login.emit(loginForm.getRawValue())"
       [clrLoading]="btnState"
     >
-      Login
-    </button>
-    <a routerLink="../forgot-password" class="signup">Forgot Password?</a>
+      Login</button
+    ><br />
+
+    <div class="text-center">
+      <asl-google-signin-button class="mx-5"></asl-google-signin-button>
+    </div>
   </div>
 </form>
