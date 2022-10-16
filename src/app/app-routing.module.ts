@@ -23,6 +23,11 @@ const routes: Routes = [
             (m) => m.SatellitesModule
           ),
       },
+      {
+        path: 'map',
+        loadChildren: () =>
+          import('src/app/modules/map/map.module').then((m) => m.MapModule),
+      },
     ],
   },
 ];
