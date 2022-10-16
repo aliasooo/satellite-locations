@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { map } from 'rxjs';
+import { map, of } from 'rxjs';
 import { SatellitesService } from 'src/app/services/satellites.service';
 import { MapLayerMouseEvent } from 'mapbox-gl';
 import { Utilities } from 'src/app/classes/utilities';
@@ -8,6 +8,7 @@ import {
   Direction,
   CoordinatesService,
 } from 'angular-coordinates';
+import { SatelliteLocation } from 'src/app/models/satellite-location.interface';
 @Component({
   selector: 'app-map-view',
   templateUrl: './map-view.component.html',
@@ -19,13 +20,65 @@ export class MapViewComponent implements OnInit {
   public transformationType = TransformationType;
   public direction = Direction;
   public decamelize = Utilities.decamelize;
-  allSatellites$: any = this.satellitesService.getSatelliteLocations().pipe(
-    map((satellites) => {
-      let geometries = satellites.map((element) => {
+  allSatellites$: any = of({
+    type: 'FeatureCollection',
+    features: [],
+  });
+
+  constructor(
+    private satellitesService: SatellitesService,
+    private coordinatesService: CoordinatesService
+  ) {}
+
+  public getAllSatellites() {
+    this.allSatellites$ = this.satellitesService.getSatelliteLocations().pipe(
+      map((satellites) => {
+        let geometries = this.formatMapData(satellites);
         return {
-          type: 'Feature',
-          properties: {
-            description: ` <div class="card-title">Path</div>
+          type: 'FeatureCollection',
+          features: geometries,
+        };
+      })
+    );
+  }
+
+  public getVisibleSatellites() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          if (position) {
+            this.allSatellites$ = this.satellitesService
+              .getVisibleSatelliteLocations(
+                position.coords.latitude,
+                position.coords.latitude
+              )
+              .pipe(
+                map((satellites) => {
+                  let geometries = this.formatMapData(satellites);
+                  return {
+                    type: 'FeatureCollection',
+                    features: geometries,
+                  };
+                })
+              );
+          }
+        },
+        (error) => Utilities.displayToast('error', error.message)
+      );
+    } else {
+      Utilities.displayToast(
+        'warning',
+        'Geolocation is not supported by this browser.'
+      );
+    }
+  }
+
+  private formatMapData(satellites: SatelliteLocation[]) {
+    return satellites.map((element) => {
+      return {
+        type: 'Feature',
+        properties: {
+          description: ` <div class="card-title">Path</div>
     <table class="table table-vertical">
       <tbody>
         <tr>
@@ -70,34 +123,21 @@ export class MapViewComponent implements OnInit {
         </tr>
       </tbody>
     </table>`,
-          },
-          geometry: {
-            type: 'Point' as const,
-            coordinates: [
-              element.path[0]?.trace?.latitude,
-              element.path[0]?.trace?.longitude,
-            ],
-          },
-        };
-      });
-      return {
-        type: 'FeatureCollection',
-        features: geometries,
+        },
+        geometry: {
+          type: 'Point' as const,
+          coordinates: [
+            element.path[0]?.trace?.latitude,
+            element.path[0]?.trace?.longitude,
+          ],
+        },
       };
-    })
-  );
-
-  constructor(
-    private satellitesService: SatellitesService,
-    private coordinatesService: CoordinatesService
-  ) {}
+    });
+  }
 
   ngOnInit(): void {}
 
   onClick(evt: MapLayerMouseEvent) {
-    console.log(evt);
-
     this.selectedPoint = evt.features?.[0] as GeoJSON.Feature<GeoJSON.Point>;
-    console.log(this.selectedPoint);
   }
 }

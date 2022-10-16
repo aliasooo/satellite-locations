@@ -1,3 +1,36 @@
+<clr-select-container>
+  <label>Filter Satellites</label>
+  <select clrSelect name="options">
+    <option selected>All Satellites</option>
+    <option>Visible Satellites</option>
+  </select>
+</clr-select-container>
+
+<clr-radio-container clrInline>
+  <label>Filter Satellites</label>
+  <clr-radio-wrapper>
+    <input
+      type="radio"
+      clrRadio
+      name="options"
+      required
+      selected
+      (click)="getAllSatellites()"
+    />
+    <label>All Satellites</label>
+  </clr-radio-wrapper>
+  <clr-radio-wrapper>
+    <input
+      type="radio"
+      clrRadio
+      name="options"
+      required
+      (click)="getVisibleSatellites()"
+    />
+    <label>Visible Satellites</label>
+  </clr-radio-wrapper>
+</clr-radio-container>
+
 <mgl-map
   [style]="'mapbox://styles/mapbox/streets-v11'"
   [zoom]="[1.5]"
@@ -12,23 +45,6 @@
     [trackUserLocation]="true"
     [showUserHeading]="true"
   ></mgl-control>
-  <!--   <mgl-geojson-source id="symbols-source">
-    <mgl-feature
-      *ngFor="let geometry of allSatellites$ | async"
-      [geometry]="geometry"
-    ></mgl-feature>
-  </mgl-geojson-source>
-  <mgl-layer
-    id="symbols"
-    type="symbol"
-    source="symbols-source"
-    [layout]="{
-      'icon-image': 'rocket-15'
-    }"
-    (layerClick)="onClick($event)"
-    (layerMouseEnter)="cursorStyle = 'pointer'"
-  >
-  </mgl-layer> -->
   <mgl-geojson-source
     id="points"
     [data]="(allSatellites$ | async)!"

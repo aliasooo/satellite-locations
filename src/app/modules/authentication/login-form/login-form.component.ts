@@ -29,6 +29,17 @@ export class LoginFormComponent {
       validators: Validators.required,
     }),
   });
+  locale = localStorage.getItem('locale')
+    ? localStorage.getItem('locale')
+    : 'en-US';
+  availableLocales = [
+    { locale: 'en-US', description: 'English' },
+    { locale: 'fr-FR', description: 'France' },
+  ];
 
   constructor() {}
+
+  changeLocale(evt: any) {
+    localStorage.setItem('locale', evt.target.value);
+  }
 }

@@ -1,17 +1,19 @@
 <clr-datagrid>
-  <clr-dg-column [clrDgField]="'displayName'">Name</clr-dg-column>
-  <clr-dg-column [clrDgField]="'constellation'">Constellation</clr-dg-column>
-  <clr-dg-column [clrDgField]="'orbit?.isHealthy'"
+  <clr-dg-column [clrDgField]="'displayName'" i18n>Name</clr-dg-column>
+  <clr-dg-column [clrDgField]="'constellation'" i18n
+    >Constellation</clr-dg-column
+  >
+  <clr-dg-column [clrDgField]="'orbit?.isHealthy'" i18n
     >Health Indicator</clr-dg-column
   >
-  <clr-dg-column [clrDgField]="'path[0]?.trace?.latitude'"
+  <clr-dg-column [clrDgField]="'path[0]?.trace?.latitude'" i18n
     >Latitude</clr-dg-column
   >
-  <clr-dg-column [clrDgField]="'path[0]?.trace?.longitude'"
+  <clr-dg-column [clrDgField]="'path[0]?.trace?.longitude'" i18n
     >Longitude</clr-dg-column
   >
 
-  <clr-dg-placeholder>Loading...</clr-dg-placeholder>
+  <clr-dg-placeholder i18n>Loading...</clr-dg-placeholder>
 
   <clr-dg-row
     *clrDgItems="let satellite of satelliteLocations"
@@ -53,7 +55,7 @@
     }}</clr-dg-cell>
   </clr-dg-row>
 
-  <clr-dg-footer *ngIf="satelliteLocations?.length! > 0">
+  <clr-dg-footer *ngIf="satelliteLocations?.length! > 0" i18n>
     {{ pagination.firstItem + 1 }} - {{ pagination.lastItem + 1 }} of
     {{ pagination.totalItems }} Satellite Locations
     <clr-dg-pagination

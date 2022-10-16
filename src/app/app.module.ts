@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { PortalContainerComponent } from './components/portal-container/portal-container.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,10 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
           },
         ],
       },
+    },
+    {
+      provide: LocationStrategy,
+      useClass: HashLocationStrategy,
     },
   ],
   bootstrap: [AppComponent],

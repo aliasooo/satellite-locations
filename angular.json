@@ -34,7 +34,8 @@
             "scripts": [
               "node_modules/@clr/icons/clr-icons.min.js",
               "node_modules/izitoast/dist/js/iziToast.min.js"
-            ]
+            ],
+            "localize": true
           },
           "configurations": {
             "production": {
@@ -42,12 +43,12 @@
                 {
                   "type": "initial",
                   "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumError": "4mb"
                 },
                 {
                   "type": "anyComponentStyle",
                   "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumError": "40kb"
                 }
               ],
               "fileReplacements": [
@@ -98,6 +99,14 @@
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": ["src/styles.scss"],
             "scripts": []
+          }
+        }
+      },
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "fr": {
+            "translation": "src/locale/messages.fr.xlf"
           }
         }
       }

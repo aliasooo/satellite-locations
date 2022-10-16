@@ -9,8 +9,8 @@
     <table class="table table-vertical">
       <tbody>
         <tr>
-          <th>Latitude</th>
-          <td>
+          <th i18n>Latitude</th>
+          <td i18n>
             {{
               satellite.path[0].trace.latitude
                 | coordinates: transformationType.ToDegrees:direction.Latitude
@@ -19,8 +19,8 @@
         </tr>
 
         <tr>
-          <th>Longitude</th>
-          <td>
+          <th i18n>Longitude</th>
+          <td i18n>
             {{
               satellite.path[0].trace.longitude
                 | coordinates: transformationType.ToDegrees:direction.Longitude
@@ -28,11 +28,11 @@
           </td>
         </tr>
         <tr>
-          <th>Height</th>
+          <th i18n>Height</th>
           <td>{{ satellite.path[0].trace.height }}</td>
         </tr>
         <tr>
-          <th>As At</th>
+          <th i18n>As At</th>
           <td>{{ satellite.path[0].asAt | date: "medium" }}</td>
         </tr>
       </tbody>
@@ -43,13 +43,13 @@
     <table class="table table-vertical">
       <tbody>
         <tr *ngFor="let field of satellite.orbit | keyvalue">
-          <th>{{ decamelize(field.key) | titlecase }}</th>
-          <td>{{ field.value }}</td>
+          <th i18n>{{ decamelize(field.key) | titlecase }}</th>
+          <td i18n>{{ field.value }}</td>
         </tr>
 
         <tr>
-          <th>Name</th>
-          <td>{{ satellite.displayName }}</td>
+          <th i18n>Name</th>
+          <td i18n>{{ satellite.displayName }}</td>
         </tr>
       </tbody>
     </table>
