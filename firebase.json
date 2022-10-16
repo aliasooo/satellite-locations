@@ -1,0 +1,16 @@
+{
+  "hosting": {
+    "public": "dist/satellite-locations",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "rewrites": [
+      {
+        "source": "./en-US{,/**}",
+        "destination": "/en-US/index.html"
+      },
+      {
+        "source": "./fr{,/**}",
+        "destination": "/fr/index.html"
+      }
+    ]
+  }
+}

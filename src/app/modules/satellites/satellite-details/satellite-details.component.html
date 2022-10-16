@@ -1,0 +1,62 @@
+<clr-modal
+  [(clrModalOpen)]="opened"
+  [clrModalClosable]="false"
+  [clrModalSize]="'lg'"
+>
+  <h3 class="modal-title">Satellite Details</h3>
+  <div class="modal-body">
+    <div class="card-title">Path</div>
+    <table class="table table-vertical">
+      <tbody>
+        <tr>
+          <th i18n>Latitude</th>
+          <td i18n>
+            {{
+              satellite.path[0].trace.latitude
+                | coordinates: transformationType.ToDegrees:direction.Latitude
+            }}
+          </td>
+        </tr>
+
+        <tr>
+          <th i18n>Longitude</th>
+          <td i18n>
+            {{
+              satellite.path[0].trace.longitude
+                | coordinates: transformationType.ToDegrees:direction.Longitude
+            }}
+          </td>
+        </tr>
+        <tr>
+          <th i18n>Height</th>
+          <td>{{ satellite.path[0].trace.height }}</td>
+        </tr>
+        <tr>
+          <th i18n>As At</th>
+          <td>{{ satellite.path[0].asAt | date: "medium" }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <br />
+
+    <div class="card-title">Orbit</div>
+    <table class="table table-vertical">
+      <tbody>
+        <tr *ngFor="let field of satellite.orbit | keyvalue">
+          <th i18n>{{ decamelize(field.key) | titlecase }}</th>
+          <td i18n>{{ field.value }}</td>
+        </tr>
+
+        <tr>
+          <th i18n>Name</th>
+          <td i18n>{{ satellite.displayName }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="modal-footer">
+    <button (click)="closeModal.emit()" class="btn btn-outline" type="button">
+      Close
+    </button>
+  </div>
+</clr-modal>

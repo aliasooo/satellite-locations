@@ -1,0 +1,20 @@
+<clr-radio-wrapper>
+  <input
+    type="radio"
+    clrRadio
+    [value]="true"
+    name="options"
+    (click)="toggleState($event.target)"
+  />
+  <label>Active</label>
+</clr-radio-wrapper>
+<clr-radio-wrapper>
+  <input
+    type="radio"
+    clrRadio
+    [value]="false"
+    name="options"
+    (click)="toggleState($event.target)"
+  />
+  <label>Inactive</label>
+</clr-radio-wrapper>

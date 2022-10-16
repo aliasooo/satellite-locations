@@ -1,1 +1,9 @@
-<p>login works!</p>
+<div class="login-wrapper">
+  <div class="login">
+    <app-login-form
+      [btnState]="btnState"
+      (login)="authenticationService.login($event)"
+      (loginWithGoogle)="authenticationService.signInWithGoogle()"
+    ></app-login-form>
+  </div>
+</div>

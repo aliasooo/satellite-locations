@@ -1,0 +1,71 @@
+<clr-select-container>
+  <label>Filter Satellites</label>
+  <select clrSelect name="options">
+    <option selected>All Satellites</option>
+    <option>Visible Satellites</option>
+  </select>
+</clr-select-container>
+
+<clr-radio-container clrInline>
+  <label>Filter Satellites</label>
+  <clr-radio-wrapper>
+    <input
+      type="radio"
+      clrRadio
+      name="options"
+      required
+      selected
+      (click)="getAllSatellites()"
+    />
+    <label>All Satellites</label>
+  </clr-radio-wrapper>
+  <clr-radio-wrapper>
+    <input
+      type="radio"
+      clrRadio
+      name="options"
+      required
+      (click)="getVisibleSatellites()"
+    />
+    <label>Visible Satellites</label>
+  </clr-radio-wrapper>
+</clr-radio-container>
+
+<mgl-map
+  [style]="'mapbox://styles/mapbox/streets-v11'"
+  [zoom]="[1.5]"
+  [center]="[-74.5, 40]"
+  [projection]="{ name: 'globe' }"
+>
+  <mgl-control
+    mglGeolocate
+    [positionOptions]="{
+      enableHighAccuracy: true
+    }"
+    [trackUserLocation]="true"
+    [showUserHeading]="true"
+  ></mgl-control>
+  <mgl-geojson-source
+    id="points"
+    [data]="(allSatellites$ | async)!"
+  ></mgl-geojson-source>
+  <mgl-layer
+    id="points"
+    source="points"
+    type="symbol"
+    [layout]="{
+      'icon-image': 'rocket-15',
+      'icon-allow-overlap': true
+    }"
+    (layerClick)="onClick($event)"
+    (layerMouseEnter)="cursorStyle = 'pointer'"
+    (layerMouseLeave)="cursorStyle = ''"
+  ></mgl-layer>
+  <mgl-popup
+    [className]="'custom-popup-class1'"
+    *ngIf="selectedPoint"
+    [feature]="selectedPoint"
+  >
+    <span [innerHTML]="selectedPoint.properties?.['description']"></span>
+  </mgl-popup>
+</mgl-map>

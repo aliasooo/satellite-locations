@@ -1,0 +1,37 @@
+<form>
+  <div class="login-group">
+    <form [formGroup]="loginForm">
+      <clr-input-container>
+        <label i18n>Email Address</label>
+        <input
+          type="text"
+          name="email"
+          clrInput
+          formControlName="email"
+          pattern="[a-zA-Z0-9]+"
+        />
+      </clr-input-container>
+      <clr-password-container>
+        <label i18n>Password</label>
+        <input
+          type="password"
+          name="password"
+          clrPassword
+          formControlName="password"
+        />
+      </clr-password-container>
+    </form>
+    <button
+      type="button"
+      class="btn btn-primary"
+      (click)="login.emit(loginForm.getRawValue())"
+      [clrLoading]="btnState"
+    >
+      Login</button
+    ><br />
+
+    <div class="text-center">
+      <asl-google-signin-button class="mx-5"></asl-google-signin-button>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template" target-language="fr-FR">
+    <body>
+      <trans-unit id="7507948636555938109" datatype="html">
+        <source>Log out</source><target>Se déconnecter</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/header/header.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1906275146903022966" datatype="html">
+        <source> All Satellites </source><target> Tous les satellites </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/sidebar/sidebar.component.html</context>
+          <context context-type="linenumber">11,13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5928287636764136116" datatype="html">
+        <source> Visible Satellites </source><target> Satellites visibles </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/sidebar/sidebar.component.html</context>
+          <context context-type="linenumber">20,22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1986777846377457008" datatype="html">
+        <source><x id="START_TAG_CLR_ICON" ctype="x-clr_icon" equiv-text="&lt;clr-icon shape=&quot;map&quot; clrVerticalNavIcon&gt;" /><x id="CLOSE_TAG_CLR_ICON" ctype="x-clr_icon" equiv-text="&lt;/clr-icon&gt;" /> Map </source><target><x id="START_TAG_CLR_ICON" ctype="x-clr_icon" equiv-text="&lt;clr-icon shape=&quot;map&quot; clrVerticalNavIcon&gt;" /><x id="CLOSE_TAG_CLR_ICON" ctype="x-clr_icon" equiv-text="&lt;/clr-icon&gt;" /> Carte </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/sidebar/sidebar.component.html</context>
+          <context context-type="linenumber">32,34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6208400071073041132" datatype="html">
+        <source><x id="START_TAG_CLR_ICON" ctype="x-clr_icon" equiv-text="&lt;clr-icon shape=&quot;search&quot; clrVerticalNavIcon&gt;" /><x id="CLOSE_TAG_CLR_ICON" ctype="x-clr_icon" equiv-text="&lt;/clr-icon&gt;" /> Spy Stuff </source><target><x id="START_TAG_CLR_ICON" ctype="x-clr_icon" equiv-text="&lt;clr-icon shape=&quot;search&quot; clrVerticalNavIcon&gt;" /><x id="CLOSE_TAG_CLR_ICON" ctype="x-clr_icon" equiv-text="&lt;/clr-icon&gt;" /> Trucs d'espionnage </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/sidebar/sidebar.component.html</context>
+          <context context-type="linenumber">43,45</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4879517228803151475" datatype="html">
+        <source>Email Address</source><target>Adresse e-mail</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/authentication/login-form/login-form.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1431416938026210429" datatype="html">
+        <source>Password</source><target>Mot de passe</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/authentication/login-form/login-form.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6061268660802813806" datatype="html">
+        <source>All Satellite Locations</source><target>Tous les emplacements satellites</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/satellites/list-satellites/list-satellites.component.html</context>
+          <context context-type="linenumber">1,2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9054639394143624108" datatype="html">
+        <source>Visible Satellites</source><target>Satellites visibles</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/satellites/list-visible-satellites/list-visible-satellites.component.html</context>
+          <context context-type="linenumber">1,2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8314090883669143391" datatype="html">
+        <source>Latitude</source><target>Latitude</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/satellites/satellite-details/satellite-details.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/satellites/satellites-table/satellites-table.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7708270344948043036" datatype="html">
+        <source> <x id="INTERPOLATION" equiv-text="{{
+              satellite.path[0].trace.latitude
+                | coordinates: transformationType.ToDegrees:direction.Latitude
+            }}" /> </source><target> <x id="INTERPOLATION" equiv-text="{{
+              satellite.path[0].trace.latitude
+                | coordinates: transformationType.ToDegrees:direction.Latitude
+            }}" /> </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/satellites/satellite-details/satellite-details.component.html</context>
+          <context context-type="linenumber">13,18</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/satellites/satellite-details/satellite-details.component.html</context>
+          <context context-type="linenumber">23,28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5174359152122758396" datatype="html">
+        <source>Longitude</source><target>Longitude</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/satellites/satellite-details/satellite-details.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/satellites/satellites-table/satellites-table.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3033623772164647792" datatype="html">
+        <source>Height</source><target>Hauteur</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/satellites/satellite-details/satellite-details.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7904557562459463694" datatype="html">
+        <source>As At</source><target>Comme à</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/satellites/satellite-details/satellite-details.component.html</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="187187500641108332" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{ decamelize(field.key) | titlecase }}" /></source><target><x id="INTERPOLATION" equiv-text="{{ decamelize(field.key) | titlecase }}" /></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/satellites/satellite-details/satellite-details.component.html</context>
+          <context context-type="linenumber">46</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/satellites/satellite-details/satellite-details.component.html</context>
+          <context context-type="linenumber">47</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/satellites/satellite-details/satellite-details.component.html</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8953033926734869941" datatype="html">
+        <source>Name</source><target>Nom</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/satellites/satellite-details/satellite-details.component.html</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/satellites/satellites-table/satellites-table.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7960019911620036460" datatype="html">
+        <source>Constellation</source><target>Constellation</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/satellites/satellites-table/satellites-table.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3207764191485723342" datatype="html">
+        <source>Health Indicator</source><target>Indicateur de santé</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/satellites/satellites-table/satellites-table.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3894950702316166331" datatype="html">
+        <source>Loading...</source><target>Chargement</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/satellites/satellites-table/satellites-table.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+       </body>
+  </file>
+</xliff>
