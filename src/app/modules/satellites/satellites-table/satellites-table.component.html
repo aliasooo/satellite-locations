@@ -4,8 +4,10 @@
   <clr-dg-column [clrDgField]="'orbit?.isHealthy'"
     >Health Indicator</clr-dg-column
   >
-  <clr-dg-column [clrDgField]="'path?.trace?.latitude'">Latitude</clr-dg-column>
-  <clr-dg-column [clrDgField]="'path?.trace?.latitude'"
+  <clr-dg-column [clrDgField]="'path[0]?.trace?.latitude'"
+    >Latitude</clr-dg-column
+  >
+  <clr-dg-column [clrDgField]="'path[0]?.trace?.longitude'"
     >Longitude</clr-dg-column
   >
 

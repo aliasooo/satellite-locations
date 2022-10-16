@@ -5,6 +5,7 @@ import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
 import { MapRoutingModule } from './map-routing.module';
 import { MapViewComponent } from './map-view/map-view.component';
 import { ClarityModule } from '@clr/angular';
+import { CoordinatesModule } from 'angular-coordinates';
 
 @NgModule({
   declarations: [MapViewComponent],
@@ -16,6 +17,7 @@ import { ClarityModule } from '@clr/angular';
         'pk.eyJ1Ijoib25lYWxtYXJhbmdlIiwiYSI6ImNqbnR4dDhycTAzdTUzcG8zeDV0azEzdXYifQ.dNUoYF7qevRDwleXY7820A',
     }),
     ClarityModule,
+    CoordinatesModule,
   ],
 })
 export class MapModule {}

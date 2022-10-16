@@ -1,5 +1,5 @@
 <mgl-map
-  [style]="'mapbox://styles/mapbox/streets-v9'"
+  [style]="'mapbox://styles/mapbox/streets-v11'"
   [zoom]="[1.5]"
   [center]="[-74.5, 40]"
   [projection]="{ name: 'globe' }"
@@ -12,4 +12,44 @@
     [trackUserLocation]="true"
     [showUserHeading]="true"
   ></mgl-control>
+  <!--   <mgl-geojson-source id="symbols-source">
+    <mgl-feature
+      *ngFor="let geometry of allSatellites$ | async"
+      [geometry]="geometry"
+    ></mgl-feature>
+  </mgl-geojson-source>
+  <mgl-layer
+    id="symbols"
+    type="symbol"
+    source="symbols-source"
+    [layout]="{
+      'icon-image': 'rocket-15'
+    }"
+    (layerClick)="onClick($event)"
+    (layerMouseEnter)="cursorStyle = 'pointer'"
+  >
+  </mgl-layer> -->
+  <mgl-geojson-source
+    id="points"
+    [data]="(allSatellites$ | async)!"
+  ></mgl-geojson-source>
+  <mgl-layer
+    id="points"
+    source="points"
+    type="symbol"
+    [layout]="{
+      'icon-image': 'rocket-15',
+      'icon-allow-overlap': true
+    }"
+    (layerClick)="onClick($event)"
+    (layerMouseEnter)="cursorStyle = 'pointer'"
+    (layerMouseLeave)="cursorStyle = ''"
+  ></mgl-layer>
+  <mgl-popup
+    [className]="'custom-popup-class1'"
+    *ngIf="selectedPoint"
+    [feature]="selectedPoint"
+  >
+    <span [innerHTML]="selectedPoint.properties?.['description']"></span>
+  </mgl-popup>
 </mgl-map>
