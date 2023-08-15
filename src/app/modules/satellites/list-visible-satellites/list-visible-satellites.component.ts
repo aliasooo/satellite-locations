@@ -34,7 +34,7 @@ export class ListVisibleSatellitesComponent
             this.satelliteLocations$ =
               this.satellitesService.getVisibleSatelliteLocations(
                 position.coords.latitude,
-                position.coords.latitude
+                position.coords.longitude
               );
           }
         },
