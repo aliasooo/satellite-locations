@@ -50,7 +50,7 @@ export class MapViewComponent implements OnInit {
             this.allSatellites$ = this.satellitesService
               .getVisibleSatelliteLocations(
                 position.coords.latitude,
-                position.coords.latitude
+                position.coords.longitude
               )
               .pipe(
                 map((satellites) => {
@@ -108,7 +108,7 @@ export class MapViewComponent implements OnInit {
         </tr>
         <tr>
           <th>As At</th>
-          <td>${element.path[0].asAt}</td>
+          <td>${new Date(element.path[0].asAt)}</td>
         </tr>
       </tbody>
     </table>
